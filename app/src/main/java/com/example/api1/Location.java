@@ -1,5 +1,4 @@
-
-package com.example.api1.com.example.api1;
+package com.example.api1;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
@@ -15,7 +14,7 @@ public class Location {
     private String address2;
     @SerializedName("address3")
     @Expose
-    private Object address3;
+    private String address3;
     @SerializedName("city")
     @Expose
     private String city;
@@ -41,16 +40,16 @@ public class Location {
 
     /**
      * 
-     * @param displayAddress
      * @param zipCode
-     * @param state
-     * @param address1
-     * @param address2
-     * @param address3
      * @param country
+     * @param address3
+     * @param address2
      * @param city
+     * @param address1
+     * @param displayAddress
+     * @param state
      */
-    public Location(String address1, String address2, Object address3, String city, String zipCode, String country, String state, List<String> displayAddress) {
+    public Location(String address1, String address2, String address3, String city, String zipCode, String country, String state, List<String> displayAddress) {
         super();
         this.address1 = address1;
         this.address2 = address2;
@@ -78,11 +77,11 @@ public class Location {
         this.address2 = address2;
     }
 
-    public Object getAddress3() {
+    public String getAddress3() {
         return address3;
     }
 
-    public void setAddress3(Object address3) {
+    public void setAddress3(String address3) {
         this.address3 = address3;
     }
 

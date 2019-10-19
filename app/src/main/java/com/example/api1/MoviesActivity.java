@@ -15,18 +15,22 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MoviesActivity extends AppCompatActivity {
-    private String[] types = new String[]{"Action", "Comedy ", "Thriller", "Horror", "Christian", "Romance"};
+    private String[] types = new String[]{"Action", "Thriller", "Christian", "Romance"};
     private TextView mTel;
     private TextView mTel2;
     private TextView mTel5;
+    private String city;
     private int [] images = {R.drawable. action,
-                             R.drawable. comedy,
                              R.drawable. thriller,
-                             R.drawable. horror,
                              R.drawable. christian,
                              R.drawable. romance
 
@@ -42,6 +46,40 @@ public class MoviesActivity extends AppCompatActivity {
         mTel = (TextView) findViewById(R.id.tel);
         mTel2 = (TextView) findViewById(R.id.tel2);
         mTel5 = (TextView) findViewById(R.id.tel5);
+
+        YelpApi client = YelpClient.getClient();
+
+        Call<YelpBusinessesSearchResponse> call = client.getMovies("USA", "movie");
+        call.enqueue(new Callback<YelpBusinessesSearchResponse>() {
+            @Override
+            public void onResponse(Call<YelpBusinessesSearchResponse> call, Response<YelpBusinessesSearchResponse> response) {
+                if (response.isSuccessful()) {
+                    List<Business> moviesList = response.body().getBusinesses();
+                    String[] movies = new String[moviesList.size()];
+                    String[] categories = new String[moviesList.size()];
+
+                    for (int i = 0; i < movies.length; i++){
+                        movies[i] = moviesList.get(i).getName();
+                    }
+
+                    for (int i = 0; i < categories.length; i++) {
+                        Category category = moviesList.get(i).getCategories().get(0);
+                        categories[i] = category.getTitle();
+                    }
+
+//                    ArrayAdapter adapter
+//                            = new MyMoviesArrayAdapter(MoviesActivity.this, android.R.layout.simple_list_item_1, movies, categories);
+//                    mListView.setAdapter(adapter);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<YelpBusinessesSearchResponse> call, Throwable t) {
+
+            }
+
+        });
 
 
         mTel.setOnClickListener(new  View.OnClickListener(){

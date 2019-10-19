@@ -1,9 +1,9 @@
+package com.example.api1;
 
-package com.example.api1.com.example.api1;
-
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class Business {
 
@@ -52,33 +52,37 @@ public class Business {
     @SerializedName("distance")
     @Expose
     private Double distance;
+    @SerializedName("price")
+    @Expose
+    private String price;
 
     /**
      * No args constructor for use in serialization
-     * 
+     *
      */
     public Business() {
     }
 
     /**
-     * 
-     * @param transactions
-     * @param phone
-     * @param alias
-     * @param imageUrl
-     * @param location
-     * @param url
+     *
      * @param displayPhone
-     * @param id
      * @param distance
-     * @param name
-     * @param reviewCount
-     * @param categories
      * @param rating
-     * @param isClosed
      * @param coordinates
+     * @param transactions
+     * @param url
+     * @param isClosed
+     * @param reviewCount
+     * @param phone
+     * @param price
+     * @param imageUrl
+     * @param name
+     * @param alias
+     * @param location
+     * @param id
+     * @param categories
      */
-    public Business(String id, String alias, String name, String imageUrl, Boolean isClosed, String url, Integer reviewCount, List<Category> categories, Integer rating, Coordinates coordinates, List<Object> transactions, Location location, String phone, String displayPhone, Double distance) {
+    public Business(String id, String alias, String name, String imageUrl, Boolean isClosed, String url, Integer reviewCount, List<Category> categories, Integer rating, Coordinates coordinates, List<Object> transactions, Location location, String phone, String displayPhone, Double distance, String price) {
         super();
         this.id = id;
         this.alias = alias;
@@ -95,6 +99,7 @@ public class Business {
         this.phone = phone;
         this.displayPhone = displayPhone;
         this.distance = distance;
+        this.price = price;
     }
 
     public String getId() {
@@ -215,6 +220,14 @@ public class Business {
 
     public void setDistance(Double distance) {
         this.distance = distance;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
 }

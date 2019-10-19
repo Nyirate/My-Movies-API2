@@ -1,5 +1,4 @@
-
-package com.example.api1.com.example.api1;
+package com.example.api1;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -22,8 +21,8 @@ public class Coordinates {
 
     /**
      * 
-     * @param longitude
      * @param latitude
+     * @param longitude
      */
     public Coordinates(Double latitude, Double longitude) {
         super();

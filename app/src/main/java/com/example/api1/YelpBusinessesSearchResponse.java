@@ -1,5 +1,4 @@
-
-package com.example.api1.com.example.api1;
+package com.example.api1;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
@@ -26,8 +25,8 @@ public class YelpBusinessesSearchResponse {
 
     /**
      * 
-     * @param region
      * @param total
+     * @param region
      * @param businesses
      */
     public YelpBusinessesSearchResponse(List<Business> businesses, Integer total, Region region) {

@@ -1,5 +1,4 @@
-
-package com.example.api1.com.example.api1;
+package com.example.api1;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -22,8 +21,8 @@ public class Category {
 
     /**
      * 
-     * @param title
      * @param alias
+     * @param title
      */
     public Category(String alias, String title) {
         super();
