@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Movie;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -52,16 +53,16 @@ public class MoviesActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<YelpBusinessesSearchResponse> call, Response<YelpBusinessesSearchResponse> response) {
                 hideProgressBar();
-
                 if (response.isSuccessful()) {
-                    movies = response.body().getBusinesses();
-                    mAdapter = new MyMoviesArrayAdapter(MoviesActivity.this, movies);
+                    List<Business> moviesList = response.body().getBusinesses();
+                    String[] movies = new String[moviesList.size()];
 
-                    mListView.setAdapter(mAdapter);
-                    ListView.LayoutManager layoutManager =
-                            new LinearLayoutManager(MoviesActivity.this);
-                    mListView.setLayoutManager(layoutManager);
-                    mListView.setHasFixedSize(true);
+                    for (int i = 0; i < movies.length; i++){
+                        movies[i] = moviesList.get(i).getName();
+                    }
+
+                    ArrayAdapter adapter = new MyMoviesArrayAdapter(MoviesActivity.this, android.R.layout.simple_list_item_1, movies);
+                    mListView.setAdapter(adapter);
 
                     showMovies();
                 } else {

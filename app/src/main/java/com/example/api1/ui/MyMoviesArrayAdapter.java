@@ -1,15 +1,17 @@
 package com.example.api1.ui;
 
 import android.content.Context;
+import android.widget.ArrayAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MyMoviesArrayAdapter extends AppCompatActivity {
+public class MyMoviesArrayAdapter extends ArrayAdapter {
     private Context mContext;
     private String[] mMovies;
 
 
-    public MyMoviesArrayAdapter(Context mContext, String[] mMovies) {
+    public MyMoviesArrayAdapter(Context mContext, int resource, String[] mMovies) {
+        super(mContext, resource);
 
         this.mContext = mContext;
         this.mMovies = mMovies;
