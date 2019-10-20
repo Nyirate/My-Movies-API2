@@ -10,31 +10,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MoviesActivity">
+        <activity android:name=".ui.MoviesActivity">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.api1.MainActivity">
+            android:value="com.example.api1.ui.MainActivity">
         </meta-data>
         </activity>
-        <activity android:name=".ActionActivity">
+        <activity android:name=".ui.ActionActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.api1.MoviesActivity">
+                android:value="com.example.api1.ui.MoviesActivity">
             </meta-data>
         </activity>
-        <activity android:name=".ThrillerActivity">
+        <activity android:name=".ui.ThrillerActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.api1.MoviesActivity">
+                android:value="com.example.api1.ui.MoviesActivity">
             </meta-data>
         </activity>
-        <activity android:name=".RomanceActivity">
+        <activity android:name=".ui.RomanceActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.api1.MoviesActivity">
+                android:value="com.example.api1.ui.MoviesActivity">
             </meta-data>
         </activity>
-        <activity android:name=".MainActivity"
+        <activity android:name=".ui.MainActivity"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

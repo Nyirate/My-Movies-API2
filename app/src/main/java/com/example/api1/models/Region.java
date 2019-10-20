@@ -1,4 +1,4 @@
-package com.example.api1;
+package com.example.api1.models;
 
 import com.example.api1.models.Center;
 import com.google.gson.annotations.Expose;

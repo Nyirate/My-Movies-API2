@@ -1,4 +1,6 @@
-package com.example.api1;
+package com.example.api1.models;
+
+import com.example.api1.BuildConfig;
 
 public class Constants {
     public static final String YELP_BASE_URL = "https://api.yelp.com/v3/";

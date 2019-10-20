@@ -1,4 +1,4 @@
-package com.example.api1;
+package com.example.api1.network;
 
 import com.example.api1.models.YelpBusinessesSearchResponse;
 

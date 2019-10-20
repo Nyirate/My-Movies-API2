@@ -2,8 +2,6 @@ package com.example.api1.models;
 
 import java.util.List;
 
-import com.example.api1.Region;
-import com.example.api1.models.Business;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
