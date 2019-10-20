@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.graphics.Movie;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,12 +31,8 @@ public class MoviesActivity extends AppCompatActivity {
     private TextView mTel5;
     private String city;
     private TextView mErrorTextView;
-    private int[] images = {R.drawable.action,
-            R.drawable.thriller,
-            R.drawable.christian,
-            R.drawable.romance
-
-    };
+    private ListView mListView;
+    private ProgressBar mProgressBar;
 
 
     @Override
@@ -42,10 +40,9 @@ public class MoviesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
 
-//        mTel = (TextView) findViewById(R.id.tel);
-//        mTel2 = (TextView) findViewById(R.id.tel2);
-//        mTel5 = (TextView) findViewById(R.id.tel5);
-
+ mListView = (ListView) findViewById(R.id.list);
+ mErrorTextView = (TextView) findViewById(R.id.error);
+ mProgressBar = (ProgressBar) findViewById(R.id.progress);
 
         YelpApi client = YelpClient.getClient();
 
@@ -60,11 +57,11 @@ public class MoviesActivity extends AppCompatActivity {
                     movies = response.body().getBusinesses();
                     mAdapter = new MyMoviesArrayAdapter(MoviesActivity.this, movies);
 
-                    mRecyclerView.setAdapter(mAdapter);
-                    RecyclerView.LayoutManager layoutManager =
+                    mListView.setAdapter(mAdapter);
+                    ListView.LayoutManager layoutManager =
                             new LinearLayoutManager(MoviesActivity.this);
-                    mRecyclerView.setLayoutManager(layoutManager);
-                    mRecyclerView.setHasFixedSize(true);
+                    mListView.setLayoutManager(layoutManager);
+                    mListView.setHasFixedSize(true);
 
                     showMovies();
                 } else {
@@ -97,7 +94,7 @@ public class MoviesActivity extends AppCompatActivity {
 
     private void showMovies() {
         {
-            mRecyclerView.setVisibility(View.VISIBLE);
+            mListView.setVisibility(View.VISIBLE);
 
         }
 
