@@ -1,5 +1,6 @@
 package com.example.api1;
 
+import com.example.api1.models.Center;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

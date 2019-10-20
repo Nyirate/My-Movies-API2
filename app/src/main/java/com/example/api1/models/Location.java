@@ -1,4 +1,4 @@
-package com.example.api1;
+package com.example.api1.models;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

@@ -1,5 +1,7 @@
 package com.example.api1;
 
+import com.example.api1.models.YelpBusinessesSearchResponse;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
