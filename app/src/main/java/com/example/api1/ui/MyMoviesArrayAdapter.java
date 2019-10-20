@@ -14,6 +14,7 @@ public class MyMoviesArrayAdapter extends AppCompatActivity {
         this.mContext = mContext;
         this.mMovies = mMovies;
     }
+
     @Override
     public Object getItem(int position) {
         String movie = mMovies[position];
