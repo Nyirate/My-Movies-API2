@@ -17,7 +17,7 @@
         android:textColor="@color/che"
         android:textSize="40dp"
         android:layout_weight="1"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         app:fontFamily="@font/biorhyme_extrabold"
        />
 
@@ -108,8 +108,15 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="207dp"
+        android:layout_marginTop="110dp"
         android:layout_marginLeft="38dp"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:visibility="gone" />
 
     <ProgressBar
