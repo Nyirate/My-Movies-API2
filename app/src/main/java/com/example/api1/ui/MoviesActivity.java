@@ -13,8 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.api1.R;
+import com.example.api1.adapters.MoviesListAdapter;
 import com.example.api1.network.YelpApi;
 import com.example.api1.network.YelpClient;
 import com.example.api1.models.Business;
@@ -34,17 +37,18 @@ public class MoviesActivity extends AppCompatActivity {
     private TextView mTel5;
     private String city;
     private TextView mErrorTextView;
-    private ListView mListView;
+    private RecyclerView mRecycler;
     private ProgressBar mProgressBar;
     private EditText editLocation;
-    public List<Business> restaurants;
+    private  MoviesListAdapter mAdapter;
+    public List<Business> movies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
 
-        mListView = (ListView) findViewById(R.id.list);
+        mRecycler = (RecyclerView) findViewById(R.id.recycler);
         mErrorTextView = (TextView) findViewById(R.id.error);
         mProgressBar = (ProgressBar) findViewById(R.id.progress);
 
@@ -64,52 +68,44 @@ public class MoviesActivity extends AppCompatActivity {
                 hideProgressBar();
 
                 if (response.isSuccessful()) {
-                    List<Business> moviesList = response.body().getBusinesses();
-                    String[] movies = new String[moviesList.size()];
-//                    Toast.makeText(MoviesActivity.this, ""+movies, Toast.LENGTH_SHORT).show();
-                    for (int i = 0; i < movies.length; i++) {
-                        movies[i] = moviesList.get(i).getName();
-                    }
+                    movies = response.body().getBusinesses();
+                    mAdapter = new MoviesListAdapter(MoviesActivity.this, movies);
+                    mRecycler.setAdapter(mAdapter);
+                    RecyclerView.LayoutManager layoutManager =
+                            new LinearLayoutManager(MoviesActivity.this);
+                    mRecycler.setLayoutManager(layoutManager);
+                    mRecycler.setHasFixedSize(true);
 
-                    ArrayAdapter adapter = new MyMoviesArrayAdapter(MoviesActivity.this, android.R.layout.simple_list_item_1, movies);
-                    mListView.setAdapter(adapter);
                     showMovies();
                 } else {
                     showUnsuccessfulMessage();
                 }
-                
             }
-
-            private void showMovies() {
-                mListView.setVisibility(View.VISIBLE);
-            }
-
-
-            private void hideProgressBar() {
-                mProgressBar.setVisibility(View.GONE);
-
-            }
-
 
             @Override
             public void onFailure(Call<YelpBusinessesSearchResponse> call, Throwable t) {
                 hideProgressBar();
                 showFailureMessage();
-
             }
-
-            private void showFailureMessage() {
-                mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
-                mErrorTextView.setVisibility(View.VISIBLE);
-            }
-
-            private void showUnsuccessfulMessage() {
-                mErrorTextView.setText("Something went wrong. Please try again later");
-                mErrorTextView.setVisibility(View.VISIBLE);
-            }
-
-
 
         });
+    }
 
-    }}
+    private void showFailureMessage() {
+        mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showUnsuccessfulMessage() {
+        mErrorTextView.setText("Something went wrong. Please try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showMovies() {
+        mRecycler.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgressBar() {
+        mProgressBar.setVisibility(View.GONE);
+    }
+}

@@ -8,18 +8,18 @@
     tools:context=".ui.MoviesActivity"
     >
 
-    <TextView
-        android:id="@+id/goview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="MOVIE TYPES"
-        android:textColor="@color/che"
-        android:textSize="40dp"
-        android:layout_weight="1"
-        android:layout_marginTop="10dp"
-        app:fontFamily="@font/biorhyme_extrabold"
-       />
+<!--    <TextView-->
+<!--        android:id="@+id/goview"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:text="CINEMA"-->
+<!--        android:textColor="@color/che"-->
+<!--        android:textSize="40dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        app:fontFamily="@font/biorhyme_extrabold"-->
+<!--       />-->
 
 
 <!--    <TextView-->
@@ -113,7 +113,7 @@
         android:visibility="gone" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
