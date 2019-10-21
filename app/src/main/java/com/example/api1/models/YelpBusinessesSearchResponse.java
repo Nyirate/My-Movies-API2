@@ -1,48 +1,44 @@
 package com.example.api1.models;
 
-import java.util.List;
+import android.os.Parcel;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+
+
+import java.util.List;
+
 public class YelpBusinessesSearchResponse {
 
-    @SerializedName("businesses")
-    @Expose
-    private List<Business> businesses = null;
     @SerializedName("total")
     @Expose
     private Integer total;
+    @SerializedName("businesses")
+    @Expose
+    private List<Business> businesses = null;
     @SerializedName("region")
     @Expose
     private Region region;
 
     /**
      * No args constructor for use in serialization
-     * 
+     *
      */
     public YelpBusinessesSearchResponse() {
     }
 
     /**
-     * 
-     * @param total
+     *
      * @param region
+     * @param total
      * @param businesses
      */
-    public YelpBusinessesSearchResponse(List<Business> businesses, Integer total, Region region) {
+    public YelpBusinessesSearchResponse(Integer total, List<Business> businesses, Region region) {
         super();
-        this.businesses = businesses;
         this.total = total;
-        this.region = region;
-    }
-
-    public List<Business> getBusinesses() {
-        return businesses;
-    }
-
-    public void setBusinesses(List<Business> businesses) {
         this.businesses = businesses;
+        this.region = region;
     }
 
     public Integer getTotal() {
@@ -51,6 +47,14 @@ public class YelpBusinessesSearchResponse {
 
     public void setTotal(Integer total) {
         this.total = total;
+    }
+
+    public List<Business> getBusinesses() {
+        return businesses;
+    }
+
+    public void setBusinesses(List<Business> businesses) {
+        this.businesses = businesses;
     }
 
     public Region getRegion() {
