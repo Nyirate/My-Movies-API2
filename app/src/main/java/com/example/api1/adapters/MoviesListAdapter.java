@@ -59,7 +59,7 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Mo
 
         public void bindMovies(Business cinema) {
             mName.setText(cinema.getName());
-            Picasso.get().load(cinema.getImageUrl()).into(mMoviesImageView);
+            Picasso.get().load(cinema.getImageUrl()).into(mImage);
 
         }
     }
