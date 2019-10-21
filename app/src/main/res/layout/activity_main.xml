@@ -37,7 +37,7 @@
         android:layout_above="@+id/watch"
         android:layout_marginBottom="10dp"
         android:padding="5dp"
-        android:hint="Search"
+        android:hint="State"
         android:layout_centerHorizontal="true"/>
 
 

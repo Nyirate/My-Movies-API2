@@ -57,9 +57,9 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Mo
             mContext = itemView.getContext();
         }
 
-        public void bindMovies(Business cinema) {
-            mName.setText(cinema.getName());
-            Picasso.get().load(cinema.getImageUrl()).into(mImage);
+        public void bindMovies(Business movies) {
+            mName.setText(movies.getName());
+            Picasso.get().load(movies.getImageUrl()).into(mImage);
 
         }
     }
